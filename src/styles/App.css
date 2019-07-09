@@ -25,6 +25,10 @@
   margin: 0;
 }
 
+.SingleDatePickerInput_calendarIcon:focus {
+  outline: none;
+}
+
 button.MuiIconButton-root:hover {
   background-color: rgba(0, 0, 0, 0);
 }

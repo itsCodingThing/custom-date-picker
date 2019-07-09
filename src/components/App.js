@@ -25,7 +25,6 @@ class Dates extends React.Component {
   };
 
   onFocusChange = ({ focused }) => {
-    console.log(focused);
     this.props.setFocused(focused);
   };
 
@@ -40,6 +39,7 @@ class Dates extends React.Component {
           onFocusChange={this.onFocusChange}
           id="your_unique_id"
           numberOfMonths={1}
+          isOutsideRange={date => false}
           showDefaultInputIcon
           small
           noBorder
@@ -49,7 +49,7 @@ class Dates extends React.Component {
   }
 }
 
-function CustomInput(props) {
+function CustomInput({ currentDate, setDate, focused, setFocused }) {
   return (
     <TextField
       id="standard-dense"
@@ -57,15 +57,15 @@ function CustomInput(props) {
       className="input"
       margin="dense"
       variant="outlined"
-      value={props.currentDate}
+      value={currentDate}
       onClick={() => {
-        props.setFocused(true);
+        setFocused(true);
       }}
       InputProps={{
         endAdornment: (
           <InputAdornment position="end">
             <IconButton edge="end" aria-label="Toggle password visibility">
-              {<Dates setDate={props.setDate} focused={props.focused} setFocused={props.setFocused} />}
+              {<Dates setDate={setDate} focused={focused} setFocused={setFocused} />}
             </IconButton>
           </InputAdornment>
         )
@@ -77,6 +77,7 @@ function CustomInput(props) {
 function App() {
   const [focused, setFocused] = useState(false);
   const [currentDate, setDate] = useState("");
+  console.log(currentDate);
   return (
     <div className="App">
       <div className="custom-date">
