@@ -1,13 +1,10 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
   margin: 10px;
 }
 
 .custom-date {
-  width: 500px;
-  display: flex;
-  justify-content: "center";
+  width: auto;
 }
 
 .DateInput {
@@ -18,6 +15,10 @@
 .input {
   margin-top: 2px;
   width: 200px;
+}
+
+.MuiFormControl-marginDense {
+  margin: 0;
 }
 
 .SingleDatePickerInput_calendarIcon {
