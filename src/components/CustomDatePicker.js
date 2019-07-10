@@ -4,6 +4,7 @@ import moment from "moment";
 import TextField from "@material-ui/core/TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import IconButton from "@material-ui/core/IconButton";
+import CalaenderToday from "@material-ui/icons/CalendarToday";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -40,7 +41,6 @@ class Dates extends React.Component {
           id="your_unique_id"
           numberOfMonths={1}
           isOutsideRange={date => false}
-          showDefaultInputIcon
           small
           noBorder
         />
@@ -77,20 +77,16 @@ function CustomDatePicker({ getDate, format }) {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <IconButton edge="end" aria-label="Toggle password visibility">
-                {
-                  <Dates
-                    setDate={setDate}
-                    focused={focused}
-                    setFocused={setFocused}
-                    format={format ? format : "MMM D YYYY"}
-                  />
-                }
-              </IconButton>
+              {
+                <IconButton>
+                  <CalaenderToday />
+                </IconButton>
+              }
             </InputAdornment>
           )
         }}
       />
+      <Dates setDate={setDate} focused={focused} setFocused={setFocused} format={format ? format : "MMM D YYYY"} />
     </div>
   );
 }
