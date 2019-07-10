@@ -3,6 +3,10 @@
   padding: 5px;
 }
 
+.picker {
+  height: 0px;
+}
+
 .DateInput {
   visibility: hidden;
   width: 0.2px;

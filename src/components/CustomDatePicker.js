@@ -17,8 +17,8 @@ class Dates extends React.Component {
   };
 
   onDateChange = date => {
-    this.setState({ date });
     if (date) {
+      this.setState({ date });
       this.props.setDate({ date: moment(date).format(this.props.format), currentTimestap: moment(date).format() });
     } else {
       this.props.setDate("");
