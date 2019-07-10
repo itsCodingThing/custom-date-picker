@@ -1,54 +1,8 @@
 .App {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
   font-family: sans-serif;
-  margin: 10px;
-}
-
-.custom-date {
-  width: auto;
-}
-
-.DateInput {
-  visibility: hidden;
-  width: 0.2px;
-}
-
-.input {
-  margin-top: 2px;
-  width: 200px;
-}
-
-.MuiFormControl-marginDense {
-  margin: 0;
-}
-
-.SingleDatePicker_picker[style] {
-  left: -228px !important;
-  top: 41px !important;
-}
-
-.SingleDatePickerInput_calendarIcon {
-  padding: 0;
-  margin: 0;
-}
-
-.SingleDatePickerInput_calendarIcon:focus {
-  outline: none;
-}
-
-button.MuiIconButton-edgeEnd {
-  margin-right: 0;
-}
-
-button.MuiIconButton-root {
-  padding: 0;
-}
-
-button.MuiIconButton-root:hover {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-span.MuiTouchRipple-root {
-  display: none;
+  padding: 10px;
 }
