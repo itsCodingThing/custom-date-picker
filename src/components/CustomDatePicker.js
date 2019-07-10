@@ -18,7 +18,7 @@ class Dates extends React.Component {
   onDateChange = date => {
     this.setState({ date });
     if (date) {
-      this.props.setDate(moment(date).format("MMM D YYYY"));
+      this.props.setDate({ date: moment(date).format(this.props.format), currentTimestap: moment(date).format() });
     } else {
       this.props.setDate("");
     }
@@ -49,37 +49,48 @@ class Dates extends React.Component {
   }
 }
 
-function CustomInput({ currentDate, setDate, focused, setFocused }) {
-  return (
-    <TextField
-      id="standard-dense"
-      label="Date"
-      className="input"
-      margin="dense"
-      variant="outlined"
-      value={currentDate}
-      onClick={() => {
-        setFocused(true);
-      }}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton edge="end" aria-label="Toggle password visibility">
-              {<Dates setDate={setDate} focused={focused} setFocused={setFocused} />}
-            </IconButton>
-          </InputAdornment>
-        )
-      }}
-    />
-  );
-}
-
-function CustomDatePicker({ getDate }) {
+function CustomDatePicker({ getDate, format }) {
   const [focused, setFocused] = useState(false);
-  const [currentDate, setDate] = useState("");
+  const [currentDate, setDate] = useState({
+    date: "",
+    currentTimestap: ""
+  });
+
+  if (currentDate.date === "") {
+    getDate(moment().format());
+  } else {
+    getDate(currentDate.currentTimestap);
+  }
+
   return (
     <div className="custom-date">
-      <CustomInput currentDate={currentDate} setFocused={setFocused} focused={focused} setDate={setDate} />
+      <TextField
+        id="standard-dense"
+        label="Date"
+        className="input"
+        margin="dense"
+        variant="outlined"
+        value={currentDate.date}
+        onClick={() => {
+          setFocused(true);
+        }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <IconButton edge="end" aria-label="Toggle password visibility">
+                {
+                  <Dates
+                    setDate={setDate}
+                    focused={focused}
+                    setFocused={setFocused}
+                    format={format ? format : "MMM D YYYY"}
+                  />
+                }
+              </IconButton>
+            </InputAdornment>
+          )
+        }}
+      />
     </div>
   );
 }
