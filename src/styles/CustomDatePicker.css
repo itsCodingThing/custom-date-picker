@@ -1,6 +1,5 @@
 .custom-date {
-  width: auto;
-  padding: 5px;
+  display: inline-block;
 }
 
 .picker {

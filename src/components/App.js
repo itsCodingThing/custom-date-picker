@@ -1,13 +1,13 @@
 import React from "react";
 import CustomDatePicker from "./CustomDatePicker";
-import moment from "moment";
-
-import "../styles/App.css";
 
 function App() {
+  const getCurrentDate = date => {
+    console.log(date);
+  };
   return (
     <div className="App">
-      <CustomDatePicker getDate={date => console.log(moment(date).format("MMM D YYYY"))} />
+      <CustomDatePicker getDate={getCurrentDate} />
     </div>
   );
 }

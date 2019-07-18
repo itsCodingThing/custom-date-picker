@@ -68,7 +68,7 @@ function CustomDatePicker({ getDate, format }) {
         id="standard-dense"
         label="Date"
         className="input"
-        margin="dense"
+        margin="normal"
         variant="outlined"
         value={currentDate.date}
         onClick={() => {
