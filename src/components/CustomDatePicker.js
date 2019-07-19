@@ -26,19 +26,20 @@ function CustomDatePicker({ getDate, format }) {
   }
 
   return (
-    <div className="custom-date">
+    <div
+      className="custom-date"
+      onClick={e => {
+        setFocused({
+          focused: !focused.focused
+        });
+      }}
+    >
       <TextField
         label="Date"
         className="input"
         margin="dense"
         variant="outlined"
         value={date.dateFormatted}
-        onClick={() => {
-          setFocused({
-            focused: !focused.focused,
-            clicked: false
-          });
-        }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
